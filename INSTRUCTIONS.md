@@ -46,6 +46,3 @@ Keep a historical record of all math operations and solutions on the server. Dis
 
   *Anticipating a user's wants and adding the feature in the interface is often a logical progression that ends up in stretch goals for project.*
 
-- Deploy to Heroku!
-
-  *Deploying a project makes it available to the masses and is a necessary step for which to prepare when planning a project.*
