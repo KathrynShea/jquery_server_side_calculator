@@ -4,21 +4,18 @@ function onReady(){
     console.log("JS and JQ working");
     //listen for a click on a number
     $('.c').on("click", startCalculator);
-    
 }
 
 let num1;
 console.log(num1);
 let num2;
 let operator;
-
+let setOfInfo = {};
 
 function startCalculator(event){
     $('.numButton').on("click", assignFirstValue);
-
 }
 function assignFirstValue(event){
-
    // check if num1 has already been selected
    if (num1 === undefined){
    //if not, then assign num1 a value
@@ -47,7 +44,6 @@ function assignFirstValue(event){
 
    //listen for an operator click
    $('.operator').on("click", assignOperator);
-
 }
 
 function assignOperator(event){
@@ -98,6 +94,19 @@ function assignSecondValue(event){
 function submitCalculation(event){
     console.log("in subit calculation function!");
 
-    //post request to send num1, num2, operator
-    //.then
+    setOfInfo = {
+        num1,
+        num2,
+        operator,
+    }
+
+    console.log (setOfInfo);
+
+    $.ajax({
+        method: "POST",
+        url: "/selectedValues",
+        data: setOfInfo,
+    }).then(function (res){
+        //do something
+    });
 }
