@@ -5,6 +5,7 @@ const app = express();
 const PORT = 5000;
 
 let answer;
+const pastCalculations = [];
 
 app.use(express.static('server/public'));
 app.use(express.urlencoded({extended:true}));
@@ -43,15 +44,25 @@ if (operator === "+"){
     
 }
 
-console.log(answer);
+let currentCalculation = {
+    num1,
+    num2,
+    operator,
+    answer,
+
+}
+console.log(pastCalculations);
+pastCalculations.push(currentCalculation);
+console.log(pastCalculations);
 
 }
 
 //get request to send answer back
 app.get("/answer", function (req, res){
    // res.sendStatus(200);
-    answer = answer.toString();
-    res.send(answer).status(200);
+    //answer = answer.toString();
+    //res.send(answer).status(200);
+    res.send(pastCalculations).status(200);
     
 });
 

@@ -2,6 +2,7 @@ $(document).ready(onReady);
 
 function onReady(){
     console.log("JS and JQ working");
+    startCalculator();
     //listen for a click on a number
     $('.c').on("click", startCalculator);
 }
@@ -13,10 +14,11 @@ let operator;
 let setOfInfo = {};
 
 function startCalculator(event){
+    debugger
     num1 = undefined;
-    num2 = undefined;
-    operator = undefined;
-    setOfInfo = {};
+    //num2 = undefined;
+    //operator = undefined;
+    //setOfInfo = {};
     $("#showNumbers").text(0);
     $('.numButton').on("click", assignFirstValue);
 }
@@ -124,6 +126,12 @@ function appendAnswer(){
         url: "/answer"
     }).then(function (res){
         console.log("got answer page to client, ", res);
-        $("#showNumbers").text(`${num1} ${operator} ${num2} = ${res}`);
+        $("#showNumbers").text(`${res.at(-1).num1} ${res.at(-1).operator} ${res.at(-1).num2} = ${res.at(-1).answer}`);
+        //${num1} ${operator} ${num2} = ${res}`);
+        
+        for(cycle of res){
+            $('#pastCalculations').append(`<div>${cycle.num1} ${cycle.operator} ${cycle.num2} = ${cycle.answer}</div>`);
+        }
+        
     });
 }
