@@ -45,8 +45,15 @@ if (operator === "+"){
 
 console.log(answer);
 
-
 }
+
+//get request to send answer back
+app.get("/answer", function (req, res){
+   // res.sendStatus(200);
+    answer = answer.toString();
+    res.send(answer).status(200);
+    
+});
 
 
 app.listen(PORT, function (){

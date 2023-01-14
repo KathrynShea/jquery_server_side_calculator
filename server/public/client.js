@@ -13,6 +13,11 @@ let operator;
 let setOfInfo = {};
 
 function startCalculator(event){
+    num1 = undefined;
+    num2 = undefined;
+    operator = undefined;
+    setOfInfo = {};
+    $("#showNumbers").text(0);
     $('.numButton').on("click", assignFirstValue);
 }
 function assignFirstValue(event){
@@ -42,6 +47,8 @@ function assignFirstValue(event){
    }}
    console.log("num 1 is ", num1);
 
+   $("#showNumbers").text(num1);
+
    //listen for an operator click
    $('.operator').on("click", assignOperator);
 }
@@ -58,6 +65,7 @@ function assignOperator(event){
         operator = "/";
     }
     console.log(operator);
+    $("#showNumbers").text(`${num1} ${operator}`);
 
     //listen for another number button to be clicked
     $('.numButton').on("click", assignSecondValue);
@@ -87,6 +95,7 @@ function assignSecondValue(event){
             num2 = 9;
            }
            console.log("num 2 is ", num2);
+           $("#showNumbers").text(`${num1} ${operator} ${num2}`);
 
            $('.equals').on("click", submitCalculation);
 }
@@ -100,13 +109,21 @@ function submitCalculation(event){
         operator,
     }
 
-    console.log (setOfInfo);
-
     $.ajax({
         method: "POST",
         url: "/selectedValues",
         data: setOfInfo,
     }).then(function (res){
-        //do something
+        appendAnswer();
+    });
+}
+
+function appendAnswer(){
+    $.ajax({
+        method: "GET",
+        url: "/answer"
+    }).then(function (res){
+        console.log("got answer page to client, ", res);
+        $("#showNumbers").text(`${num1} ${operator} ${num2} = ${res}`);
     });
 }
