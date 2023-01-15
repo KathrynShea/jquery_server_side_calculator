@@ -1,0 +1,36 @@
+h4{
+    margin-bottom: 0px;
+    margin-left: 5px;
+    border: 1px solid grey;
+    display: inline-block;
+    width: 100px;
+    padding-left: 5px;
+    background-color: lightgrey;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: 100;
+}
+
+table{
+    margin-left: 3px;
+}
+
+button{
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+    padding: 2px;
+    font-family: "Gill Sans", sans-serif;
+    background-color: lightblue;
+    
+}
+
+td {
+    padding: 0px;
+    width: 10px;
+  
+    
+}
+
+tr{
+    width: 100px;
+}

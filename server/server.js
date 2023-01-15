@@ -7,66 +7,53 @@ const PORT = 5000;
 let answer;
 const pastCalculations = [];
 
-app.use(express.static('server/public'));
-app.use(express.urlencoded({extended:true}));
-
+app.use(express.static("server/public"));
+app.use(express.urlencoded({ extended: true }));
 
 //requests
-app.post("/selectedValues", function (req,res){
-    console.log(req.body.num1);
-    console.log(req.body.num2);
-    console.log(req.body.operator);
-    
+app.post("/selectedValues", function (req, res) {
+  console.log(req.body.num1);
+  console.log(req.body.num2);
+  console.log(req.body.operator);
 
-    let num1 = req.body.num1;
-    let num2 = req.body.num2;
-    let operator = req.body.operator;
+  let num1 = req.body.num1;
+  let num2 = req.body.num2;
+  let operator = req.body.operator;
 
-    doCalculation(num1, num2, operator);
+  doCalculation(num1, num2, operator);
 
-    res.sendStatus(200);
+  res.sendStatus(200);
+});
 
-})
+function doCalculation(num1, num2, operator) {
+  console.log("in do calculation function");
 
-function doCalculation(num1, num2, operator){
-console.log("in do calculation function");
-
-if (operator === "+"){
+  if (operator === "+") {
     answer = Number(num1) + Number(num2);
-}else if (operator === "-"){
+  } else if (operator === "-") {
     answer = Number(num1) - Number(num2);
-    
-}else if (operator === "*"){
+  } else if (operator === "*") {
     answer = Number(num1) * Number(num2);
-    
-}else if (operator === "/"){
-    answer = Number(num1) / Number(num2);
-    
-}
+  } else if (operator === "/") {
+    answer = (Number(num1) / Number(num2)).toFixed(2);
+  }
 
-let currentCalculation = {
+  let currentCalculation = {
     num1,
     num2,
     operator,
     answer,
-
-}
-console.log(pastCalculations);
-pastCalculations.push(currentCalculation);
-console.log(pastCalculations);
-
+  };
+  console.log(pastCalculations);
+  pastCalculations.push(currentCalculation);
+  console.log(pastCalculations);
 }
 
 //get request to send answer back
-app.get("/answer", function (req, res){
-   // res.sendStatus(200);
-    //answer = answer.toString();
-    //res.send(answer).status(200);
-    res.send(pastCalculations).status(200);
-    
+app.get("/answer", function (req, res) {
+  res.send(pastCalculations).status(200);
 });
 
-
-app.listen(PORT, function (){
-    console.log("listening on port ", PORT);
+app.listen(PORT, function () {
+  console.log("listening on port ", PORT);
 });

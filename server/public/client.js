@@ -1,10 +1,11 @@
 $(document).ready(onReady);
 
-function onReady(){
-    console.log("JS and JQ working");
-    startCalculator();
-    //listen for a click on a number
-    $('.c').on("click", startCalculator);
+function onReady() {
+  console.log("JS and JQ working");
+  startCalculator();
+  //listen for a click on a number
+  $(".c").on("click", startCalculator);
+  $(".equals").on("click", submitCalculation);
 }
 
 let num1;
@@ -13,125 +14,146 @@ let num2;
 let operator;
 let setOfInfo = {};
 
-function startCalculator(event){
-    debugger
-    num1 = undefined;
-    //num2 = undefined;
-    //operator = undefined;
-    //setOfInfo = {};
-    $("#showNumbers").text(0);
-    $('.numButton').on("click", assignFirstValue);
-}
-function assignFirstValue(event){
-   // check if num1 has already been selected
-   if (num1 === undefined){
-   //if not, then assign num1 a value
-   if ($(event.target).hasClass('0')){
-    num1 = 0;
-   }else if ($(event.target).hasClass('1')){
-    num1 = 1;
-   }else if ($(event.target).hasClass('2')){
-    num1 = 2;
-   }else if ($(event.target).hasClass('3')){
-    num1 = 3;
-   }else if ($(event.target).hasClass('4')){
-    num1 = 4;
-   }else if ($(event.target).hasClass('5')){
-    num1 = 5;
-   }else if ($(event.target).hasClass('6')){
-    num1 = 6;
-   }else if ($(event.target).hasClass('7')){
-    num1 = 7;
-   }else if ($(event.target).hasClass('8')){
-    num1 = 8;
-   }else if ($(event.target).hasClass('9')){
-    num1 = 9;
-   }}
-   console.log("num 1 is ", num1);
-
-   $("#showNumbers").text(num1);
-
-   //listen for an operator click
-   $('.operator').on("click", assignOperator);
+function startCalculator(event) {
+  num1 = undefined;
+  num2 = undefined;
+  operator = undefined;
+  //setOfInfo = {};
+  $("#showNumbers").text(0);
+  $(".numButton").on("click", assignValue);
 }
 
-function assignOperator(event){
-    //assign operator to equal button that was clicked
-    if ($(event.target).hasClass('+')){
-        operator = "+";
-    }else if ($(event.target).hasClass('-')){
-        operator = "-";
-    }else if ($(event.target).hasClass('*')){
-        operator = "*";
-    }else if ($(event.target).hasClass('/')){
-        operator = "/";
+function assignValue(event) {
+  // check if num1 has already been selected
+  if (num1 === undefined) {
+    //if not, then assign num1 a value
+    if ($(event.target).hasClass("0")) {
+      num1 = 0;
+      $("#showNumbers").text(num1);
+    } else if ($(event.target).hasClass("1")) {
+      num1 = 1;
+      $("#showNumbers").text(num1);
+    } else if ($(event.target).hasClass("2")) {
+      num1 = 2;
+      $("#showNumbers").text(num1);
+    } else if ($(event.target).hasClass("3")) {
+      num1 = 3;
+      $("#showNumbers").text(num1);
+    } else if ($(event.target).hasClass("4")) {
+      num1 = 4;
+      $("#showNumbers").text(num1);
+    } else if ($(event.target).hasClass("5")) {
+      num1 = 5;
+      $("#showNumbers").text(num1);
+    } else if ($(event.target).hasClass("6")) {
+      num1 = 6;
+      $("#showNumbers").text(num1);
+    } else if ($(event.target).hasClass("7")) {
+      num1 = 7;
+      $("#showNumbers").text(num1);
+    } else if ($(event.target).hasClass("8")) {
+      num1 = 8;
+      $("#showNumbers").text(num1);
+    } else if ($(event.target).hasClass("9")) {
+      num1 = 9;
+      $("#showNumbers").text(num1);
     }
-    console.log(operator);
-    $("#showNumbers").text(`${num1} ${operator}`);
-
-    //listen for another number button to be clicked
-    $('.numButton').on("click", assignSecondValue);
-}
-
-function assignSecondValue(event){
-        //assign num 2
-        if ($(event.target).hasClass('0')){
-            num2 = 0;
-           }else if ($(event.target).hasClass('1')){
-            num2 = 1;
-           }else if ($(event.target).hasClass('2')){
-            num2 = 2;
-           }else if ($(event.target).hasClass('3')){
-            num2 = 3;
-           }else if ($(event.target).hasClass('4')){
-            num2 = 4;
-           }else if ($(event.target).hasClass('5')){
-            num2 = 5;
-           }else if ($(event.target).hasClass('6')){
-            num2 = 6;
-           }else if ($(event.target).hasClass('7')){
-            num2 = 7;
-           }else if ($(event.target).hasClass('8')){
-            num2 = 8;
-           }else if ($(event.target).hasClass('9')){
-            num2 = 9;
-           }
-           console.log("num 2 is ", num2);
-           $("#showNumbers").text(`${num1} ${operator} ${num2}`);
-
-           $('.equals').on("click", submitCalculation);
-}
-
-function submitCalculation(event){
-    console.log("in subit calculation function!");
-
-    setOfInfo = {
-        num1,
-        num2,
-        operator,
+  } else {
+    if ($(event.target).hasClass("0")) {
+      num2 = 0;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+    } else if ($(event.target).hasClass("1")) {
+      num2 = 1;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+    } else if ($(event.target).hasClass("2")) {
+      num2 = 2;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+    } else if ($(event.target).hasClass("3")) {
+      num2 = 3;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+    } else if ($(event.target).hasClass("4")) {
+      num2 = 4;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+    } else if ($(event.target).hasClass("5")) {
+      num2 = 5;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+    } else if ($(event.target).hasClass("6")) {
+      num2 = 6;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+    } else if ($(event.target).hasClass("7")) {
+      num2 = 7;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+    } else if ($(event.target).hasClass("8")) {
+      num2 = 8;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+    } else if ($(event.target).hasClass("9")) {
+      num2 = 9;
+      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
     }
+    //$("#showNumbers").text(`${num1} ${operator} ${num2}`);
+  }
 
-    $.ajax({
-        method: "POST",
-        url: "/selectedValues",
-        data: setOfInfo,
-    }).then(function (res){
-        appendAnswer();
-    });
+  //listen for an operator click
+  $(".operator").on("click", assignOperator);
 }
 
-function appendAnswer(){
-    $.ajax({
-        method: "GET",
-        url: "/answer"
-    }).then(function (res){
-        console.log("got answer page to client, ", res);
-        $("#showNumbers").text(`${res.at(-1).num1} ${res.at(-1).operator} ${res.at(-1).num2} = ${res.at(-1).answer}`);
-        //${num1} ${operator} ${num2} = ${res}`);
-        
-        for(cycle of res){
-            $('#pastCalculations').append(`<div>${cycle.num1} ${cycle.operator} ${cycle.num2} = ${cycle.answer}</div>`);
-        }
-        
-    });
+function assignOperator(event) {
+  //assign operator to equal button that was clicked
+  if (num1 != undefined) {
+    if ($(event.target).hasClass("+")) {
+      operator = "+";
+    } else if ($(event.target).hasClass("-")) {
+      operator = "-";
+    } else if ($(event.target).hasClass("*")) {
+      operator = "*";
+    } else if ($(event.target).hasClass("/")) {
+      operator = "/";
+    }
+  }
+  console.log(operator);
+  $("#showNumbers").text(`${num1} ${operator}`);
+
+  
+}
+
+
+
+function submitCalculation(event) {
+  console.log("in subit calculation function!");
+
+  setOfInfo = {
+    num1,
+    num2,
+    operator,
+  };
+
+  $.ajax({
+    method: "POST",
+    url: "/selectedValues",
+    data: setOfInfo,
+  }).then(function (res) {
+    appendAnswer();
+  });
+}
+
+function appendAnswer() {
+  $.ajax({
+    method: "GET",
+    url: "/answer",
+  }).then(function (res) {
+    console.log("got answer page to client, ", res);
+    $("#showNumbers").text(
+      `${res.at(-1).num1} ${res.at(-1).operator} ${res.at(-1).num2} = ${
+        res.at(-1).answer
+      }`
+    );
+
+    $("#pastCalculations").empty();
+
+    for (let cycle of res) {
+      $("#pastCalculations").append(
+        `<div>${cycle.num1} ${cycle.operator} ${cycle.num2} = ${cycle.answer}</div>`
+      );
+    }
+  });
 }
