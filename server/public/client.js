@@ -6,6 +6,8 @@ function onReady() {
   //listen for a click on a number
   $(".c").on("click", startCalculator);
   $(".equals").on("click", submitCalculation);
+  //click listener for numbers
+  $(".numButton").on("click", assignValue);
 }
 
 let num1;
@@ -15,18 +17,19 @@ let operator;
 let setOfInfo = {};
 
 function startCalculator(event) {
+  //reseting all values
   num1 = undefined;
   num2 = undefined;
   operator = undefined;
-  //setOfInfo = {};
+
+  //reset top calculation box to "0"
   $("#showNumbers").text(0);
-  $(".numButton").on("click", assignValue);
 }
 
 function assignValue(event) {
   // check if num1 has already been selected
-  if (num1 === undefined) {
-    //if not, then assign num1 a value
+  if (num1 === undefined && operator === undefined) {
+    //if not, then assign num1 the selected value
     if ($(event.target).hasClass("0")) {
       num1 = 0;
       $("#showNumbers").text(num1);
@@ -58,37 +61,104 @@ function assignValue(event) {
       num1 = 9;
       $("#showNumbers").text(num1);
     }
-  } else {
+  } else if (num1 !== undefined && operator === undefined) {
+    //if num1 is already assigned a value and the operator has not been selected, keep adding the number to num1
     if ($(event.target).hasClass("0")) {
-      num2 = 0;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "0";
+      $("#showNumbers").text(num1);
     } else if ($(event.target).hasClass("1")) {
-      num2 = 1;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "1";
+      $("#showNumbers").text(num1);
     } else if ($(event.target).hasClass("2")) {
-      num2 = 2;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "2";
+      $("#showNumbers").text(num1);
     } else if ($(event.target).hasClass("3")) {
-      num2 = 3;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "3";
+      $("#showNumbers").text(num1);
     } else if ($(event.target).hasClass("4")) {
-      num2 = 4;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "4";
+      $("#showNumbers").text(num1);
     } else if ($(event.target).hasClass("5")) {
-      num2 = 5;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "5";
+      $("#showNumbers").text(num1);
     } else if ($(event.target).hasClass("6")) {
-      num2 = 6;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "6";
+      $("#showNumbers").text(num1);
     } else if ($(event.target).hasClass("7")) {
-      num2 = 7;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "7";
+      $("#showNumbers").text(num1);
     } else if ($(event.target).hasClass("8")) {
-      num2 = 8;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "8";
+      $("#showNumbers").text(num1);
     } else if ($(event.target).hasClass("9")) {
-      num2 = 9;
-      $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      num1 += "9";
+      $("#showNumbers").text(num1);
+    }
+  } else if (operator !== undefined) {
+    if (num2 === undefined) {
+      if ($(event.target).hasClass("0")) {
+        num2 = 0;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      } else if ($(event.target).hasClass("1")) {
+        num2 = 1;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      } else if ($(event.target).hasClass("2")) {
+        num2 = 2;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      } else if ($(event.target).hasClass("3")) {
+        num2 = 3;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      } else if ($(event.target).hasClass("4")) {
+        num2 = 4;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      } else if ($(event.target).hasClass("5")) {
+        num2 = 5;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      } else if ($(event.target).hasClass("6")) {
+        num2 = 6;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      } else if ($(event.target).hasClass("7")) {
+        num2 = 7;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      } else if ($(event.target).hasClass("8")) {
+        num2 = 8;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      } else if ($(event.target).hasClass("9")) {
+        num2 = 9;
+        $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+      }
+    } else if (num2 !== undefined){
+        if ($(event.target).hasClass("0")) {
+            num2 += "0";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          } else if ($(event.target).hasClass("1")) {
+            num2 += "1";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          } else if ($(event.target).hasClass("2")) {
+            num2 += "2";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          } else if ($(event.target).hasClass("3")) {
+            num2 += "3";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          } else if ($(event.target).hasClass("4")) {
+            num2 += "4";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          } else if ($(event.target).hasClass("5")) {
+            num2 += "5";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          } else if ($(event.target).hasClass("6")) {
+            num2 += "6";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          } else if ($(event.target).hasClass("7")) {
+            num2 += "7";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          } else if ($(event.target).hasClass("8")) {
+            num2 += "8";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          } else if ($(event.target).hasClass("9")) {
+            num2 += "9";
+            $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+          }
     }
     //$("#showNumbers").text(`${num1} ${operator} ${num2}`);
   }
@@ -112,11 +182,7 @@ function assignOperator(event) {
   }
   console.log(operator);
   $("#showNumbers").text(`${num1} ${operator}`);
-
-  
 }
-
-
 
 function submitCalculation(event) {
   console.log("in subit calculation function!");
