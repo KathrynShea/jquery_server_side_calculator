@@ -1,55 +1,53 @@
-#calculator{
-    background-color: #C65D7B;
-    display: inline-block;
-    border-radius: 3px;
-
+#calculator {
+  background-color: #c65d7b;
+  display: inline-block;
+  border-radius: 3px;
 }
 
-h4{
-    margin: 8px 8px 1px 18px;
-    padding: 5px 10px 5px 10px;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    display: inline-block;
-    width: 350px;
-    height: 35px;
-    background-color: #e7d9cc;
-    font-family: "Gill Sans", sans-serif;
-    font-weight: 100;
-    font-size: 30px;
-    color: #874356;
-    border-style: outset;
+h4 {
+  margin: 8px 8px 1px 18px;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  display: inline-block;
+  width: 350px;
+  height: 35px;
+  background-color: #e7d9cc;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 100;
+  font-size: 30px;
+  color: #874356;
+  border-style: outset;
 }
 
-table{ 
-    width: 200px;
-    margin: 1px 8px 5px 8px;
-    padding: 1px 10px 1px 10px;
+table {
+  width: 200px;
+  margin: 1px 8px 5px 8px;
+  padding: 1px 10px 1px 10px;
 }
 
-button{
-    display: inline-block;
-    width: 90px;
-    height: 40px;
-    padding: 2px;
-    font-family: "Gill Sans", sans-serif;
-    background-color: #F6E7D8;
-    font-size: 20px;
-    border-radius: 5px;
-    color: #874356;
-
+button {
+  display: inline-block;
+  width: 90px;
+  height: 40px;
+  padding: 2px;
+  font-family: "Gill Sans", sans-serif;
+  background-color: #f6e7d8;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #874356;
 }
 
 td {
-    padding: 0px;
-    width: 10px;
+  padding: 0px;
+  width: 10px;
 }
 
-tbody{
-    width: 200px;
+tbody {
+  width: 200px;
 }
 
-h3{
-    margin-bottom: 5px;
-    color: #874356;
+h3 {
+  margin-bottom: 5px;
+  color: #874356;
 }

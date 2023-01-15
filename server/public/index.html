@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="jquery-3.6.1.min.js"></script>
     <script src="client.js"></script>
-    <link href="style.css" rel="styleSheet"/>
+    <link href="style.css" rel="styleSheet" />
     <title>Server Side Calculator</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="calculator">
-    <div id="top">
+      <div id="top">
         <h4 id="showNumbers">0</h4>
+      </div>
+      <table>
+        <tr>
+          <td><button class="numButton 7">7</button></td>
+          <td><button class="numButton 8">8</button></td>
+          <td><button class="numButton 9">9</button></td>
+          <td><button class="operator /">/</button></td>
+        </tr>
+        <tr>
+          <td><button class="numButton 4">4</button></td>
+          <td><button class="numButton 5">5</button></td>
+          <td><button class="numButton 6">6</button></td>
+          <td><button class="operator *">*</button></td>
+        </tr>
+        <tr>
+          <td><button class="numButton 1">1</button></td>
+          <td><button class="numButton 2">2</button></td>
+          <td><button class="numButton 3">3</button></td>
+          <td><button class="operator -">-</button></td>
+        </tr>
+        <tr>
+          <td><button class="numButton 0">0</button></td>
+          <td><button class="c">C</button></td>
+          <td><button class="operator +">+</button></td>
+          <td><button class="equals">=</button></td>
+        </tr>
+      </table>
     </div>
-    <table>
-        <tr><td><button class ="numButton 7">7</button></td><td><button class ="numButton 8">8</button></td><td><button class ="numButton 9">9</button></td><td><button class ="operator /">/</button></td></tr>
-        <tr><td><button class ="numButton 4">4</button></td><td><button class ="numButton 5">5</button></td><td><button class ="numButton 6">6</button></td><td><button class ="operator *">*</button></td></tr>
-        <tr><td><button class ="numButton 1">1</button></td><td><button class ="numButton 2">2</button></td><td><button class ="numButton 3">3</button></td><td><button class ="operator -">-</button></td></tr>
-        <tr><td><button class ="numButton 0">0</button></td><td><button class ="c">C</button></td><td><button class ="operator +">+</button></td><td><button class ="equals">=</button></td></tr>
-    </table>
-</div>
     <h3>Past Calculations:</h3>
     <div id="pastCalculations"></div>
-    
-</body>
+  </body>
 </html>

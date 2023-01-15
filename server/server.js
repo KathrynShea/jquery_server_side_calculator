@@ -10,7 +10,7 @@ const pastCalculations = [];
 app.use(express.static("server/public"));
 app.use(express.urlencoded({ extended: true }));
 
-//requests
+//post request to save entered information
 app.post("/selectedValues", function (req, res) {
   console.log(req.body.num1);
   console.log(req.body.num2);
