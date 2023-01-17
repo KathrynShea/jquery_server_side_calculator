@@ -1,6 +1,8 @@
 $(document).ready(onReady);
 
 function onReady() {
+  //called this function so that all history is listed when we refresh the page.
+  appendAnswer();
   //console.log("JS and JQ working");
   startCalculator();
   //listen for a click on a number

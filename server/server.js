@@ -55,5 +55,6 @@ app.get("/answer", function (req, res) {
 });
 
 app.listen(PORT, function () {
+  console.log("here is the process.env", process.env);
   console.log("listening on port ", PORT);
 });
