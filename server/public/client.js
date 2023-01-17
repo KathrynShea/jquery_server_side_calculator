@@ -227,6 +227,7 @@ function appendAnswer() {
     );
 
     $("#pastCalculations").empty();
+    
     //loop through total history array and append all previous calculations to DOM
     for (let cycle of res) {
       $("#pastCalculations").append(
