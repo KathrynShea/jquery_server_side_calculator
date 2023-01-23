@@ -32,4 +32,3 @@ If you have suggestions or issues, please email me at kathrynszombatfalvy@gmail.
 ## Future fixes
 1. add commas into the final totals
 2. When I hit "equals" to0 early, current undefined appears - change this so user cannot submit until all values are filled.
-ß

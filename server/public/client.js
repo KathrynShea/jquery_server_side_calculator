@@ -3,8 +3,7 @@ $(document).ready(onReady);
 function onReady() {
   //called this function so that all history is listed when we refresh the page.
   appendAnswer();
-  //console.log("JS and JQ working");
-  startCalculator();
+
   //listen for a click on a number
   $(".c").on("click", startCalculator);
   //listen for click on equals button
@@ -13,6 +12,8 @@ function onReady() {
   $(".numButton").on("click", assignValue);
   $(".operator").on("click", assignOperator);
   $(".decimal").on("click", addDecimal);
+
+  $("#showNumbers").text(0);
 }
 
 // initial variables
@@ -114,16 +115,16 @@ function appendAnswer() {
     console.log("got answer page to client, ", res);
     $("#showNumbers").text(
       `${res.at(-1).num1} ${res.at(-1).operator} ${res.at(-1).num2} = ${
-        res.at(-1).answer
+        (res.at(-1).answer).toFixed(2)
       }`
     );
 
     $("#pastCalculations").empty();
-    
+  
     //loop through total history array and append all previous calculations to DOM
     for (let cycle of res) {
       $("#pastCalculations").append(
-        `<div>${cycle.num1} ${cycle.operator} ${cycle.num2} = ${cycle.answer}</div>`
+        `<div>${cycle.num1} ${cycle.operator} ${cycle.num2} = ${(cycle.answer).toFixed(2)}</div>`
       );
     }
   });
