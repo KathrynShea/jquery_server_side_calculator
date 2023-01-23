@@ -29,11 +29,11 @@ function doCalculation(num1, num2, operator) {
   console.log("in do calculation function");
 
   if (operator === "+") {
-    answer = Number(num1) + Number(num2);
+    answer = Number(num1) + Number(num2).toFixed(2);
   } else if (operator === "-") {
-    answer = Number(num1) - Number(num2);
+    answer = Number(num1) - Number(num2).toFixed(2);
   } else if (operator === "*") {
-    answer = Number(num1) * Number(num2);
+    answer = Number(num1) * Number(num2).toFixed(2);
   } else if (operator === "/") {
     answer = (Number(num1) / Number(num2)).toFixed(2);
   }

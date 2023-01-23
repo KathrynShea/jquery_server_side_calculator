@@ -12,6 +12,7 @@ function onReady() {
   //click listener for numbers
   $(".numButton").on("click", assignValue);
   $(".operator").on("click", assignOperator);
+  $(".decimal").on("click", addDecimal);
 }
 
 // initial variables
@@ -126,4 +127,17 @@ function appendAnswer() {
       );
     }
   });
+}
+
+function addDecimal(){
+  console.log("made it to addDecimal function");
+  if(operator === undefined){
+    //add decimal to num1
+    num1 += ".";
+    $("#showNumbers").text(num1);
+  }else{
+    //add decimal to num2
+    num2 += ".";
+    $("#showNumbers").text(`${num1} ${operator} ${num2}`);
+  }
 }
