@@ -31,8 +31,6 @@ function startCalculator(event) {
 }
 
 function assignValue(event) {
-
-
   // check if num1 has already been selected
   if (num1 === undefined && operator === undefined) {
     //if not, then assign num1 the selected value
