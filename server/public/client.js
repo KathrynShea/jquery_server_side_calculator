@@ -87,7 +87,7 @@ function assignOperator(event) {
 }
 
 function submitCalculation(event) {
-  //console.log("in subit calculation function!");
+  console.log("in subit calculation function!");
 
   //assign variables into an onject
   setOfInfo = {
@@ -113,10 +113,12 @@ function appendAnswer() {
     url: "/answer",
   }).then(function (res) {
     console.log("got answer page to client, ", res);
+    let newVar = ((res.at(-1).answer));
+    console.log("newVar is" , newVar);
     $("#showNumbers").text(
       `${res.at(-1).num1} ${res.at(-1).operator} ${res.at(-1).num2} = ${
-        (res.at(-1).answer).toFixed(2)
-      }`
+        (res.at(-1).answer)}
+      `
     );
 
     $("#pastCalculations").empty();
@@ -124,7 +126,7 @@ function appendAnswer() {
     //loop through total history array and append all previous calculations to DOM
     for (let cycle of res) {
       $("#pastCalculations").append(
-        `<div>${cycle.num1} ${cycle.operator} ${cycle.num2} = ${(cycle.answer).toFixed(2)}</div>`
+        `<div>${cycle.num1} ${cycle.operator} ${cycle.num2} = ${(cycle.answer)}</div>`
       );
     }
   });
