@@ -59,3 +59,18 @@ h3 {
 .c, .equals{
   background-color: #FFCBA4;
 }
+
+.peach{
+  background-image: url("./peach.png");
+  display: inline-block;
+  width: 90px;
+  height: 80px;
+  padding: 1px;
+  font-family: "Gill Sans", sans-serif;
+  background-color: #f6e7d8;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #874356;
+  background-size: contain;
+  background-repeat:no-repeat;
+}
