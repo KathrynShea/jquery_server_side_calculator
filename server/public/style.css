@@ -61,16 +61,14 @@ h3 {
 }
 
 .peach{
-  background-image: url("./peach.png");
+
+  border-style: outset;
   display: inline-block;
   width: 90px;
   height: 80px;
   padding: 1px;
-  font-family: "Gill Sans", sans-serif;
-  background-color: #f6e7d8;
-  font-size: 20px;
+  background-color: #FFCBA4;
   border-radius: 5px;
   color: #874356;
-  background-size: contain;
-  background-repeat:no-repeat;
+
 }
